@@ -14,8 +14,17 @@ class MyFrame extends Frame implements ActionListener {
     setLayout(new FlowLayout()); // 左から右にボタンを配置する
     dispLabel = new Label("Hello");
     b1 = new Button("1");
+    b1.addActionListener(this); // いベントリスナーを登録
     add(b1);
     add(dispLabel);
+  }
+
+  // ボタンがクリックされたときのアクションを記述
+  public void actionPerformed(ActionEvent ae) {
+    if (ae.getSource() == b1) {
+      System.out.println("クリックされたよ");
+      dispLabel.setText("Hello");
+    }
   }
 }
 
