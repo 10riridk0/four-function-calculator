@@ -2,11 +2,20 @@ import java.awt.*;
 import java.awt.event.*;
 
 // MyFrameクラスの宣言
-class MyFrame extends Frame {
+// ActionListenerインターフェースを実装
+class MyFrame extends Frame implements ActionListener {
+  Button b1; // ボタンオブジェクトを生成
+  Label dispLabel; // 計算結果等を示すラベルを生成
+
   public MyFrame() {
     setTitle("簡易計算機"); // ウィンドウのタイトル
     setSize(500, 800); // ウィンドウサイズ
     addWindowListener(new MyWindowAdapter()); // WindowEventを受け取るイベントリスナを指定する
+    setLayout(new FlowLayout()); // 左から右にボタンを配置する
+    dispLabel = new Label("Hello");
+    b1 = new Button("1");
+    add(b1);
+    add(dispLabel);
   }
 }
 
