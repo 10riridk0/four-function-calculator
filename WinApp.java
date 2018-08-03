@@ -4,21 +4,35 @@ import java.awt.event.*;
 // MyFrameクラスの宣言
 // ActionListenerインターフェースを実装
 class MyFrame extends Frame implements ActionListener {
-  Label dispLabel; // 計算結果等を示すラベルを生成
-  Button btn[] = new Button[10];
-  String buttonLavel[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+  Label ansLabel; // 計算結果を示すラベルを生成
+  Label formulLabel; // 計算式を示すラベル
+  Button btn[] = new Button[20];
+  String buttonLavel[] = { "hoge", "Reset", "Delete", "÷", "7", "8", "9", "×", "4", "5", "6", "-", "1", "2", "3", "+",
+      "negate", "0", ".", "=" };
 
   public MyFrame() {
     setTitle("簡易計算機"); // ウィンドウのタイトル
     setSize(1920, 1080); // ウィンドウサイズ
     addWindowListener(new MyWindowAdapter()); // WindowEventを受け取るイベントリスナを指定する
-    setLayout(new FlowLayout()); // 左から右にボタンを配置する
-    dispLabel = new Label("Hello");
-    for (int i = 0; i < 10; i++) {
+    
+    setLayout(new GridLayout(2, 1));
+    formulLabel = new Label("formulLavel");
+    ansLabel = new Label("ansLabel");
+
+    formulLabel.setPreferredSize(new Dimension(1080, 100));
+    ansLabel.setPreferredSize(new Dimension(1080, 100));
+    add(formulLabel);
+    add(ansLabel);
+
+    setLayout(new GridLayout(5, 4)); // 左から右にボタンを配置する
+    for (int i = 0; i < 20; i++) {
       btn[i] = new Button(buttonLavel[i]);
+      btn[i].setPreferredSize(new Dimension(50, 100));
+      btn[i].setFont(new Font("Calibri", Font.PLAIN, 30));
       add(btn[i]);
     }
-    add(dispLabel);
+
+    setVisible(true);
   }
 
   // ボタンがクリックされたときのアクションを記述
