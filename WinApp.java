@@ -5,7 +5,7 @@ import java.awt.event.*;
 // ActionListenerインターフェースを実装
 class MyFrame extends Frame implements ActionListener {
   Label dispLabel; // 計算結果等を示すラベルを生成
-  Button btn[] = new Button[9];
+  Button btn[] = new Button[10];
   String buttonLavel[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
   public MyFrame() {
@@ -14,8 +14,8 @@ class MyFrame extends Frame implements ActionListener {
     addWindowListener(new MyWindowAdapter()); // WindowEventを受け取るイベントリスナを指定する
     setLayout(new FlowLayout()); // 左から右にボタンを配置する
     dispLabel = new Label("Hello");
-    for (int i = 0; i < 9; i++) {
-      btn[i] = new Button("way");
+    for (int i = 0; i < 10; i++) {
+      btn[i] = new Button(buttonLavel[i]);
       add(btn[i]);
     }
     add(dispLabel);
