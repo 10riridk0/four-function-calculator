@@ -19,15 +19,15 @@ class MyFrame extends Frame implements ActionListener {
 
     /* 計算式と答えを示すラベルをセンターに配置 */
     setLayout(new FlowLayout(FlowLayout.CENTER));
-    formulLabel = new Label("formulLavel");
-    ansLabel = new Label("ansLabel");
+    formulLabel = new Label("");
+    ansLabel = new Label("0");
     /* ラベルの外見を変更 */
     formulLabel.setPreferredSize(new Dimension(1920, 80));
     ansLabel.setPreferredSize(new Dimension(1920, 80));
     formulLabel.setAlignment(Label.RIGHT);
     ansLabel.setAlignment(Label.RIGHT);
-    formulLabel.setFont(new Font("Calibri", Font.PLAIN, 20));
-    ansLabel.setFont(new Font("Calibri", Font.PLAIN, 20));
+    formulLabel.setFont(new Font("Calibri", Font.PLAIN, 30));
+    ansLabel.setFont(new Font("Calibri", Font.PLAIN, 30));
 
     /* ウィンドウに追加する */
     add(formulLabel);
